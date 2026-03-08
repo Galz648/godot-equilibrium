@@ -8,7 +8,6 @@ const SPEED = 500
 var last_direction = Vector2(0,0)
 func _process(delta: float) -> void:
 	
-	
 	var not_moving = (velocity.x == 0) and (velocity.y  == 0)
 	if not_moving:
 		# decide which idle animation to play

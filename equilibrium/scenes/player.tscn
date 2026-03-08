@@ -300,8 +300,10 @@ script = ExtResource("1_g2els")
 position = Vector2(1, -110)
 scale = Vector2(13.4375, 12)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"move_up"
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-6, -104)
 shape = SubResource("CircleShape2D_d2wvv")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
