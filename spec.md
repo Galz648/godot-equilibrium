@@ -1,240 +1,204 @@
-### Game Design Summary Vision
+# Game Design Summary
 
-A systems-driven chemistry game where players restore a damaged ecosystem
-through scientific discovery.
+## Goal
 
-The game teaches simplified real-world chemistry by allowing players to run
-experiments, observe reactions, and build machines that stabilize industrial
-processes.
+Stabilize ammonia production and restore plant growth.
 
-Players progress from lab experiments to industrial chemical systems.
+---
 
-The demo concludes when the player successfully produces ammonia fertilizer and
-vegetation begins to return to the planet.
+# Vision
 
-The central theme of the game is experiment and discovery, not recipe
+A systems-driven chemistry game where players repair a failing industrial
+process to restore a damaged ecosystem.
+
+The player inherits a **primitive ammonia reactor** that barely works. Through
+experimentation and engineering improvements, they gradually stabilize the
+process and increase ammonia production.
+
+The game teaches simplified real-world chemistry by allowing players to observe
+reactions, test ideas, and modify industrial machines.
+
+The demo focuses entirely on **improving a crude Haber-Bosch process**.
+
+The final moment of the demo occurs when ammonia production becomes stable
+enough to produce fertilizer and vegetation begins returning to the planet.
+
+The central theme of the game is **experiment and discovery**, not recipe
 automation.
 
-Machines are derived from scientific understanding rather than unlocked through
-a technology tree.
+Machines and improvements emerge from understanding how the process works,
+rather than unlocking technologies from a tech tree.
 
-### Inspiration
+---
+
+# Inspiration
 
 The design draws inspiration from several systems-driven games.
 
-Factorio
+## Factorio
 
-systemic gameplay loop
+- systemic gameplay loop
+- industrial machinery
+- environmental feedback
 
-industrial machinery and logistics
+## Turing Complete
 
-environmental feedback
+- educational gameplay through system construction
+- learning through experimentation
 
-Turing Complete
+## Antimatter Chemistry (Minecraft modpack)
 
-educational gameplay through system construction
+- chemistry-inspired industrial processes
+- material transformation systems
 
-learning through experimentation
+---
 
-Antimatter Chemistry (Minecraft modpack)
+# Improvement Progression (Demo)
 
-deep crafting chains
+| Step               | Player Action               | Concept Learned          |
+| ------------------ | --------------------------- | ------------------------ |
+| observe reactor    | ammonia yield extremely low | equilibrium limitation   |
+| install heater     | reaction rate increases     | reaction kinetics        |
+| add iron catalyst  | reaction accelerates        | catalysis                |
+| install compressor | ammonia yield increases     | Le Chatelier's principle |
+| add condenser      | ammonia separated from gas  | phase separation         |
 
-material decomposition and recombination
+By the end of the demo the player has built a **primitive but functional
+industrial ammonia loop**.
 
-chemistry-inspired industrial machinery
+---
 
-Core Design Principle
+# MVP Scope (Demo)
 
-The game centers on scientific discovery through experimentation.
+The demo intentionally focuses on **a single industrial system**.
+
+## Machines
+
+- reactor
+- heater module
+- catalytic bed
+- compressor
+- condenser
+
+## Materials
+
+Approximately **10–15 materials**.
+
+Examples:
+
+- nitrogen
+- hydrogen
+- ammonia
+- water
+- iron catalyst
+- air mixture
+
+# Core Design Principle
+
+The game centers on **scientific discovery through experimentation**.
+
+Instead of unlocking recipes, players **analyze and improve an existing
+industrial system**.
 
 Player behavior follows a research loop:
 
-observe problem ↓ form hypothesis ↓ run experiment ↓ observe result ↓ discover
-scientific principle ↓ unlock machine design ↓ build automated system
+observe system behavior\
+↓\
+identify inefficiency\
+↓\
+form hypothesis\
+↓\
+run experiment\
+↓\
+observe results\
+↓\
+discover scientific principle\
+↓\
+modify the reactor
 
-Machines are therefore discoveries, not unlockable items.
+Automation and machinery are therefore **solutions to observed problems**.
 
-Automation is the result of understanding.
+---
 
-Continuous Chemistry Model
+# Demo Scenario — A Broken Haber-Bosch Reactor
 
-Chemical reactions are simulated as continuous processes rather than fixed
-crafting recipes.
+At the beginning of the demo the player discovers an **old industrial ammonia
+reactor**.
 
-Reaction behavior depends on:
+The system technically works, but production is extremely poor.
 
-concentration
+Problems include:
 
-temperature
+- reaction proceeds extremely slowly
+- ammonia yield is very low
+- gas mixture leaves the reactor mostly unreacted
+- temperature fluctuates
+- no product separation
 
-pressure
+The player improves the reactor by discovering modules and attaching them to
+dedicated slots surrounding the reactor.\
+Modules automatically snap into place when brought near the reactor.
 
-catalyst activity
+---
 
-Players manipulate reactor conditions to influence reaction behavior.
+# Reaction
 
-This allows:
-
-slow reactions
-
-failed experiments
-
-catalytic improvements
-
-equilibrium limits
-
-heat feedback
-
-The goal is to create a simplified but believable model of chemical processes.
-
-Core Gameplay Loop
-
-The player repeatedly performs the following cycle:
-
-observe environmental problem ↓ search for information (library / colleagues) ↓
-run experiment ↓ discover scientific principle ↓ unlock machine design ↓ build
-automated reactor system ↓ terraform ecosystem
-
-Industrial activity improves the ecosystem but may also introduce new
-instabilities.
-
-Example Discovery Chain — Haber-Bosch Process
-
-The demo tutorial centers around the synthesis of ammonia.
-
-Goal:
-
-Restore nitrogen to the soil by producing ammonia fertilizer.
-
-Discovery progression:
-
-discover nitrogen in air
-
-separate nitrogen from air
-
-produce hydrogen through electrolysis
-
-attempt nitrogen–hydrogen reaction
-
-observe extremely slow reaction
-
-discover catalytic metals
-
-increase pressure to shift equilibrium
-
-condense ammonia from gas mixture
-
-Final reaction:
+The core chemical reaction already exists at the start of the game:
 
 N₂ + 3H₂ ⇌ 2NH₃
 
-The player learns how industrial chemistry stabilizes reactions that would
-otherwise be inefficient.
+However the reactor operates far from optimal industrial conditions.
 
-Core Engineering Framework
+Players must experiment with reactor modifications to improve yield.
 
-Most chemical processes in the game follow a common structure derived from
-industrial chemical engineering.
+---
 
-1. Reaction
+# Core Engineering Framework
+
+Most chemical systems in the game follow recurring chemical engineering
+principles.
+
+## Reaction
 
 Chemical transformation between molecules.
 
-2. Kinetics
+## Kinetics
 
 Reaction speed depends on temperature, concentration, and catalysts.
 
-3. Thermodynamics / Equilibrium
+## Thermodynamics / Equilibrium
 
-Reversible reactions approach equilibrium and limit product yield.
+Reversible reactions limit the maximum possible yield.
 
-4. Transport
+## Transport
 
-Materials must be moved through pipes, pumps, or compressors.
+Materials must move through pipes, pumps, or compressors.
 
-5. Heat Management
+## Heat Management
 
-Reactions may release or absorb heat, requiring temperature control.
+Reactions release or absorb heat and require temperature control.
 
-6. Separation
+## Separation
 
-Products must be separated from reactants through physical processes.
+Products must be removed from the reaction mixture.
 
-These six ideas form the core systems vocabulary of the game.
+These concepts form the **engineering language of the game**.
 
-Chemistry Concepts Introduced
+---
 
-The game introduces several simplified chemistry principles:
+# Environmental Feedback
 
-reaction kinetics
+Industrial chemistry directly affects the environment.
 
-chemical equilibrium
+ammonia produced\
+↓\
+fertilizer created\
+↓\
+plants grow\
+↓\
+ecosystem stabilizes
 
-equilibrium-limited reactions
+Players visually observe environmental recovery as the reactor becomes more
+efficient.
 
-Le Chatelier's principle
-
-catalysis
-
-catalyst degradation
-
-exothermic reactions
-
-self-sustaining reactions
-
-phase condensation
-
-material separation
-
-Players encounter these concepts through experimentation rather than direct
-instruction.
-
-Concept Progression in the Demo
-
-Each discovery step introduces a new concept.
-
-Step	Gameplay Discovery	Concept air separation	nitrogen isolation	material
-separation water electrolysis	hydrogen production	chemical transformation failed
-reaction	slow N₂ + H₂ reaction	reaction kinetics metal testing	catalytic
-acceleration	catalysis pressure increase	improved ammonia yield	Le Chatelier's
-principle reactor heating	temperature feedback	exothermic reaction stable
-reactor	reaction maintains temperature	self-sustaining process cooling
-stage	ammonia condensation	phase separation Environmental Feedback
-
-Industrial chemistry directly affects the world.
-
-Example feedback loop:
-
-ammonia produced ↓ fertilizer created ↓ plants grow ↓ ecosystem stabilizes
-
-Players visually observe environmental recovery as their industrial systems
-improve the planet.
-
-MVP Scope
-
-The demo should remain intentionally small.
-
-Machines
-
-gas separator
-
-electrolyzer
-
-heater
-
-catalytic reactor
-
-compressor
-
-condenser
-
-pipes
-
-Materials
-
-Approximately 10–20 materials.
-
-Goal
-
-Produce ammonia fertilizer and restore plant growth.
+---
