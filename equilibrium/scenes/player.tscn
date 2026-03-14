@@ -292,6 +292,7 @@ animations = [{
 radius = 100.12991
 
 [node name="Player" type="Node2D"]
+position = Vector2(0, -6)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_g2els")
@@ -307,3 +308,5 @@ position = Vector2(-6, -104)
 shape = SubResource("CircleShape2D_d2wvv")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(2, -86)
+scale = Vector2(0.5, 0.5)

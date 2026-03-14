@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://crq48ebe83k1k"]
+[gd_scene load_steps=8 format=3 uid="uid://crq48ebe83k1k"]
 
+[ext_resource type="Script" uid="uid://c4j2yqj4l7xov" path="res://main.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dbd5c4d8c8ccs" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://skuot5ao3m2" path="res://assets/Tiles/FarmLand_Tile.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bmjhwte3ub05b" path="res://scenes/chest.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://b2i06edbqnqo4" path="res://scenes/label.gd" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -21,10 +23,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lnu2h")
 
 [node name="Game" type="Node2D"]
-position = Vector2(0, 1)
+position = Vector2(6, -9)
+script = ExtResource("1_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 2
+position = Vector2(570, 377)
 scale = Vector2(0.5, 0.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -32,17 +36,44 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_uwrxv")
 
 [node name="chest" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(588, 262)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="InterfaceLayover" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -327.0
-offset_right = -576.0
-offset_bottom = -327.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/InterfaceLayover"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="UI/InterfaceLayover/BoxContainer"]
+layout_mode = 2
+script = ExtResource("5_iywne")
+
+[node name="ColorRect" type="ColorRect" parent="UI/InterfaceLayover"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 120.0
+offset_right = -256.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005517481, 0.10623006, 0.19935873, 0.6117647)
+
+[connection signal="input_event" from="chest" to="chest" method="_on_input_event"]

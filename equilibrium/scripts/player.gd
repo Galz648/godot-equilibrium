@@ -5,8 +5,8 @@ const SPEED = 500
 #const JUMP_VELOCITY = -400.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var last_direction = Vector2(0,0)
-func _process(delta: float) -> void:
+
+func handlePlayerAnimation(): 
 	
 	var not_moving = (velocity.x == 0) and (velocity.y  == 0)
 	if not_moving:
@@ -52,6 +52,9 @@ func _process(delta: float) -> void:
 		last_direction = Vector2(0, 1)
 		player_sprite.play("move_up")
 	
+var last_direction = Vector2(0,0)
+func _process(delta: float) -> void:
+		handlePlayerAnimation()
 		
 	
 func _physics_process(delta: float) -> void:
